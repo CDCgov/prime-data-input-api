@@ -30,3 +30,13 @@ If you want to view the API documentation generated from the OAS document, you c
 For example, check out the browsable docs from ReDoc: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/CDCgov/prime-data-input-api/master/openapi.yml
 
 Or paste the raw YML file URL (https://raw.githubusercontent.com/CDCgov/prime-data-input-api/master/openapi.yml) in other UIs or editors of your choice, e.g. [Swagger UI](https://petstore.swagger.io/).
+
+## Deploying
+
+We deploy on Cloud Foundry.
+
+Log in on the CLI following these instructions: https://cloud.gov/docs/getting-started/setup/.
+
+While logging into the CLI, specify that you want to connect to the `dhs-prototyping` org and the `usds-prime` space.
+
+Then in your terminal, from the root of the project, run: `cf push`. Bam!

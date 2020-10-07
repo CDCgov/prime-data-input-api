@@ -1,0 +1,7 @@
+---
+applications:
+- name: prime-data-input-api
+  buildpacks:
+   - nodejs_buildpack
+  command: node api.js
+  memory: 256M

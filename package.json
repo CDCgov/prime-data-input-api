@@ -1,0 +1,24 @@
+{
+  "name": "prime-data-input-api",
+  "version": "1.0.0",
+  "description": "This is a prototype API for the PRIME Data Input application. It utilizes a design-first approach to API design and implementation: the [OpenAPI Specification](https://www.openapis.org/) in `openapi.yml` is the design document from which the API is generated.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CDCgov/prime-data-input-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CDCgov/prime-data-input-api/issues"
+  },
+  "homepage": "https://github.com/CDCgov/prime-data-input-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "openapi-enforcer": "^1.10.8",
+    "openapi-enforcer-middleware": "^1.2.2"
+  }
+}

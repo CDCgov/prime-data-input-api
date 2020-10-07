@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
   }
 })
 
-const listener = app.listen(3000, err => {
+const listener = app.listen(process.env.PORT || 3000, err => {
   if (err) return console.error(err.stack)
   console.log('Server listening on port ' + listener.address().port)
 })
