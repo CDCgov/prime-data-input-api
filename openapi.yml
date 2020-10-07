@@ -1,0 +1,664 @@
+openapi: "3.0.0"
+# version: "3.0.0"
+# description: Prototype for PRIME data input API
+# tags:
+#   - organizations
+#   - test_registrations
+#   - test_results 
+#   - test_sites
+info:
+  version: 0.0.1
+  title: PRIME Prototype
+  contact: 
+    email: qom3@cdc.gov
+  license:
+    name: MIT
+servers:
+  - url: https://prime.cdc.gov/v1
+paths:
+  /organizations:
+    get:
+      summary: List all organizations
+      operationId: listOrganizations
+      tags:
+        - organizations
+      parameters:
+        - name: keyword
+          in: query
+          description: Search by keyword
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of test events
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Organizations"
+              examples:
+                organizations:
+                  $ref: '#/components/examples/organizations'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create an organization
+      operationId: createOrganization
+      tags:
+        - organizations
+      responses:
+        '201':
+          description: Responds with the organization just created
+          headers:
+            Location:
+              schema:
+                type: string
+              description: Location of the created resource
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Organization"
+              examples:
+                organization:
+                  $ref: '#/components/examples/organization'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /organizations/{organizationID}:
+    get: 
+      summary: Info for specific organization
+      operationId: showOrganizationById
+      tags:
+        - organizations
+      parameters:
+        - name: organizationID
+          in: path
+          required: true
+          description: The id of the organization to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single organization
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Organization"
+              examples:
+                organization:
+                  $ref: '#/components/examples/organization'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_registrations:
+    get:
+      summary: List all test registrations
+      operationId: listTestRegistrations
+      tags:
+        - test_registrations
+      parameters:
+        - name: keyword
+          in: query
+          description: Search by keyword
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of test events
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestRegistrations"
+              examples:
+                test_registrations:
+                  $ref: '#/components/examples/test_registrations'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create a test event
+      operationId: createTestRegistration
+      tags:
+        - test_registrations
+      responses:
+        '201':
+          description: Responds with the test registration just created
+          headers:
+            Location:
+              schema:
+                type: string
+              description: Location of the created resource
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestRegistration"
+              examples:
+                test_registration:
+                  $ref: '#/components/examples/test_registration'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_registrations/{testRegistrationID}:
+    get:
+      summary: Info for a specific test event
+      operationId: showTestRegistrationById
+      tags:
+        - test_registrations
+      parameters:
+        - name: testRegistrationID
+          in: path
+          required: true
+          description: The id of the test event to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestRegistration"
+              examples:
+                test_registration:
+                  $ref: '#/components/examples/test_registration'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_results:
+    get:
+      summary: List all test results
+      operationId: listTestResults
+      tags:
+        - test_results
+      parameters:
+        - name: testRegistrationID
+          in: query
+          description: Filter by test registration
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of test events
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestResults"
+              examples:
+                test_results:
+                  $ref: '#/components/examples/test_results'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create a test result
+      operationId: createTestResult
+      tags:
+        - test_results
+      responses:
+        '201':
+          description: Responds with the test result just created
+          headers:
+            Location:
+              schema:
+                type: string
+              description: Location of the created resource
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestResult"
+              examples:
+                test_result:
+                  $ref: '#/components/examples/test_result'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_results/{testResultID}:
+    get:
+      summary: Info for a specific test result
+      operationId: showTestResultById
+      tags:
+        - test_results
+      parameters:
+        - name: testResultID
+          in: path
+          required: true
+          description: The id of the test result to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestResult"
+              examples:
+                test_result:
+                  $ref: '#/components/examples/test_result'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_sites:
+    get:
+      summary: List all test sites
+      operationId: listTestSites
+      tags:
+        - test_sites
+      parameters:
+        - name: organizationID
+          in: query
+          description: Filter by organization
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of test events
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestSites"
+              examples:
+                test_sites:
+                  $ref: '#/components/examples/test_sites'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create a test site
+      operationId: createTestSite
+      tags:
+        - test_sites
+      responses:
+        '201':
+          description: Responds with the test site just created
+          headers:
+            Location:
+              schema:
+                type: string
+              description: Location of the created resource
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/TestSite"
+              examples:
+                test_site:
+                  $ref: '#/components/examples/test_site'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /test_sites/{testSiteID}:
+    get:
+      summary: Info for a specific test site
+      operationId: showTestSiteById
+      tags:
+        - test_sites
+      parameters:
+        - name: testSiteID
+          in: path
+          required: true
+          description: The id of the test site to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSite"
+              examples:
+                test_site:
+                  $ref: '#/components/examples/test_site'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Organization:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Organizations:
+      type: object
+      required:
+        - count
+        - items
+      properties:
+        count:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Organization"
+    TestRegistration:
+      type: object
+      required:
+        - id
+        - test_datetime
+        - first_name
+        - last_name
+        - phone
+        - birth_date
+      properties:
+        id:
+          type: integer
+          format: int64
+        test_datetime:
+          type: string
+          format: date-time
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        birth_date:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zipcode:
+          type: string
+        preferred_contact_method:
+          type: string
+        race:
+          type: string
+        ethnicity:
+          type: string
+        sex:
+          type: string
+        symptoms:
+          type: array
+          items:
+            type: string
+          
+    TestRegistrations:
+      type: object
+      required:
+        - count
+        - items
+      properties:
+        count:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestRegistration"
+    TestResult:
+      type: object
+      required:
+        - id
+        - received_at
+        - test_registration_id
+        - value
+      properties:
+        id:
+          type: integer
+          format: int64
+        received_at:
+          type: string
+          format: date-time
+        test_registration_id:
+          type: integer
+        value:
+          type: integer
+    TestResults:
+      type: object
+      required:
+        - count
+        - items
+      properties:
+        count:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestResult"
+    TestSite:
+      type: object
+      required:
+        - id
+        - name
+        - organization_id
+        - address
+        - city
+        - state
+        - zipcode
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        organization_id:
+          type: integer
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zipcode:
+          type: string
+    TestSites:
+      type: object
+      required:
+        - count
+        - items
+      properties:
+        count:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestSite"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  examples:
+    organization:
+      summary: University organization
+      value:
+        id: 1
+        name: University of Colorado
+    organizations:
+      summary: List of organizations
+      value:
+        count: 2
+        items:
+          - id: 1
+            name: University of Colorado
+          - id: 2
+            name: Hope Health System
+    test_registration:
+      summary: A test registration
+      value:
+        id: 1
+        test_datetime: "2020-10-01T12:00:01.000Z"
+        first_name: Clark
+        middle_name: M
+        last_name: Michaelson
+        birth_date: "1980-07-30"
+        phone: "720-455-6789"
+        email: "clark@example.com"
+        address: 1800 Pine St
+        city: Boulder
+        state: CO
+        zipcode: "80302"
+        preferred_contact_method: email
+        race: white
+        ethnicity: other
+        sex: other
+        symptoms:
+          - fever
+          - cough
+    test_registrations:
+      summary: List of test registrations
+      value:
+        count: 2
+        items:
+          - id: 1
+            test_datetime: "2020-10-01T12:00:01.000Z"
+            first_name: Clark
+            middle_name: M
+            last_name: Michaelson
+            birth_date: "1980-07-30"
+            phone: "720-455-6789"
+            email: "clark@example.com"
+            address: 1800 Pine St
+            city: Boulder
+            state: CO
+            zipcode: "80302"
+            preferred_contact_method: email
+            race: white
+            ethnicity: other
+            sex: other
+            symptoms:
+              - fever
+              - cough
+          - id: 2
+            test_datetime: "2020-10-02T09:14:10.000Z"
+            first_name: Enola
+            middle_name: T
+            last_name: Holmes
+            birth_date: "1988-12-01"
+            phone: "720-344-6789"
+            email: "enola@example.com"
+            address: 100 Maple St
+            city: Boulder
+            state: CO
+            zipcode: "80302"
+            preferred_contact_method: phone
+            race: hispanic
+            ethnicity: other
+            sex: female
+            symptoms:
+              - ""
+    test_result:
+      summary: A test result
+      value:
+        id: 1
+        received_at: "2020-10-01T12:00:01.000Z"
+        test_registration_id: 1
+        value: 1
+    test_results:
+      summary: List of test results
+      value:
+        count: 2
+        items:
+          - id: 1
+            received_at: "2020-10-01T12:00:01.000Z"
+            test_registration_id: 1
+            value: 1
+          - id: 2
+            received_at: "2020-10-01T12:00:01.000Z"
+            test_registration_id: 2
+            value: 0
+    test_site:
+      summary: A test site
+      value:
+        id: 1
+        name: South campus
+        organization_id: 1
+        address: 543 S Pearl St
+        city: Boulder
+        state: CO
+        zipcode: "80302"
+    test_sites:
+      summary: List of test sites
+      value:
+        count: 2
+        items:
+          - id: 1
+            name: South campus
+            organization_id: 1
+            address: 543 S Pearl St
+            city: Boulder
+            state: CO
+            zipcode: "80301"
+          - id: 1
+            name: North campus
+            organization_id: 1
+            address: 8 N Avery St
+            city: Boulder
+            state: CO
+            zipcode: "80306"
+    
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+    prime_api_auth:
+      type: oauth2
+      flows: 
+        implicit:
+          authorizationUrl: http://example.org/api/oauth/dialog
+          scopes:
+            write:patients: modify patients in your account
+            read:patients: read your patients 
+security:
+- api_key: []
+- prime_api_auth: []
