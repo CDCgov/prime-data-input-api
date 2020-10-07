@@ -12,16 +12,16 @@ Make sure you have NodeJS installed and accessible in the project directory.
 
 Run the server: `node api.js`
 
-Your API is now available at localhost:3000.
+Your API is now available at `localhost:3000`.
 
 ## Using the OAS document
 
-If you don't want to use this Express server, or you want to take advantage the extensive tooling ecosystem around OpenAPI, you can simply plug and play `openapi.yml` with any of your favorite tools! This project's OAS doc is in OAS v 3.0.0, so you can use any tool compatible with this version.
+If you don't want to use this Express server, or you want to take advantage the extensive tooling ecosystem around OpenAPI, you can simply plug and play `openapi.yml` with any of your favorite tools! This project's OAS doc is in OAS3, so you can use any tool compatible with this version.
 
 Check out these lists of tools:
 
-[OpenAPI.tools](https://openapi.tools/)
-[OpenAPI 3.0 Implementations](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md)
+* [OpenAPI.tools](https://openapi.tools/)
+* [OpenAPI 3.0 Implementations](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md)
 
 ## Viewing the docs
 
