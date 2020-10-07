@@ -1,4 +1,4 @@
-# PRIME Data Inoput API
+# PRIME Data Input API
 
 This is a prototype API for the PRIME Data Input application. It utilizes a design-first approach to API design and implementation: the [OpenAPI Specification](https://www.openapis.org/) in `openapi.yml` is the design document from which the API is generated. 
 
