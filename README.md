@@ -22,3 +22,11 @@ Check out these lists of tools:
 
 [OpenAPI.tools](https://openapi.tools/)
 [OpenAPI 3.0 Implementations](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md)
+
+## Viewing the docs
+
+If you want to view the API documentation generated from the OAS document, you can do so easily with open source and free SAAS tools.
+
+For example, check out the browsable docs from ReDoc: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/CDCgov/prime-data-input-api/master/openapi.yml
+
+Or paste the raw YML file URL (https://raw.githubusercontent.com/CDCgov/prime-data-input-api/master/openapi.yml) in other UIs or editors of your choice, e.g. [Swagger UI](https://petstore.swagger.io/).
