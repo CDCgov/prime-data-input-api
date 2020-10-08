@@ -6,17 +6,21 @@ The API itself is Express middleware generated with [OpenAPI Enforcer](https://g
 
 ## Getting Started
 
-Clone this repo.
+0. Clone this repo.
 
-Make sure you have NodeJS installed and accessible in the project directory.
+1. Make sure you have NodeJS installed and accessible in the project directory.
 
-1. Install dependencies
+2. Install dependencies
 
 > npm install
 
-Run the server: `node api.js`
+3. If you want to run the server locally and detect changes to the `openapi.yml` file
+
+> npm start
 
 Your API is now available at `localhost:4000`.
+
+If you make changes to the `openapi.yml` spec, the server will automatically restart. If you are accessing the data from a browser, you would need to refresh the page to see changes.
 
 ## Using the OAS document
 

@@ -239,14 +239,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /test_results/{testResultID}:
+  /test_results/{test_result_id}:
     get:
       summary: Info for a specific test result
       operationId: showTestResultById
       tags:
         - test_results
       parameters:
-        - name: testResultID
+        - name: test_result_id
           in: path
           required: true
           description: The id of the test result to retrieve
@@ -425,7 +425,7 @@ components:
           type: array
           items:
             type: string
-        testResultId:
+        test_result_id:
           type: integer
           format: int64
           nullable: true
@@ -557,7 +557,7 @@ components:
         symptoms:
           - fever
           - cough
-        testResultId: 1
+        test_result_id: 1
     test_registrations:
       summary: List of test registrations
       value:
@@ -582,7 +582,7 @@ components:
             symptoms:
               - fever
               - cough
-            testResultId: 1
+            test_result_id: 1
           - id: 234
             test_datetime: "2020-10-02T09:14:10.000Z"
             first_name: Enola
@@ -601,7 +601,7 @@ components:
             sex: female
             symptoms:
               - ""
-            testResultId: null
+            test_result_id: null
           - id: 345
             test_datetime: "2020-10-02T09:14:10.000Z"
             first_name: Viscount Tewkesbury
@@ -620,7 +620,7 @@ components:
             sex: male
             symptoms:
               - ""
-            testResultId: 2
+            test_result_id: 2
     test_result:
       summary: A test result
       value:
