@@ -1,9 +1,18 @@
 const express = require("express");
 const Enforcer = require("openapi-enforcer-middleware");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000", // local Data Input Client app
+      "https://prime-data-input-client.app.cloud.gov", // stage Data Input Client app
+    ],
+  })
+);
 
 const controllerDirectory = path.resolve(__dirname, "controllers");
 const mockDirectory = path.resolve(__dirname, "mock-controllers");

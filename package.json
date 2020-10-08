@@ -5,7 +5,7 @@
   "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -w openapi.yml api.js"
+    "start": "nodemon -w ./ api.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/CDCgov/prime-data-input-api#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "openapi-enforcer": "^1.10.8",
     "openapi-enforcer-middleware": "^1.2.2"
