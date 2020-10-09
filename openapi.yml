@@ -612,8 +612,8 @@ components:
             email: "tewkesbury@example.com"
             address: 999 Noble Ave
             city: Basilwether
-            state: UK
-            zipcode: "80302"
+            state: MA
+            zipcode: "02163"
             preferred_contact_method: phone
             race: caucasian
             ethnicity: other
