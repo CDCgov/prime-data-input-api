@@ -1,18 +1,26 @@
 # PRIME Data Input API
 
-This is a prototype API for the PRIME Data Input application. It utilizes a design-first approach to API design and implementation: the [OpenAPI Specification](https://www.openapis.org/) in `openapi.yml` is the design document from which the API is generated. 
+This is a prototype API for the PRIME Data Input application. It utilizes a design-first approach to API design and implementation: the [OpenAPI Specification](https://www.openapis.org/) in `openapi.yml` is the design document from which the API is generated.
 
 The API itself is Express middleware generated with [OpenAPI Enforcer](https://github.com/byu-oit/openapi-enforcer). It currently is a mock server serving data provided as `examples` in the `openapi.yml` document. As we iterate on the design, we will begin building out this middleware so that it implements desired logic and connects to desired data storage, etc.
 
 ## Getting Started
 
-Clone this repo. 
+0. Clone this repo.
 
-Make sure you have NodeJS installed and accessible in the project directory.
+1. Make sure you have NodeJS installed and accessible in the project directory.
 
-Run the server: `node api.js`
+2. Install dependencies
 
-Your API is now available at `localhost:3000`.
+> npm install
+
+3. If you want to run the server locally and detect changes to the `openapi.yml` file
+
+> npm start
+
+Your API is now available at `localhost:4000`.
+
+If you make changes to the `openapi.yml` spec, the server will automatically restart. If you are accessing the data from a browser, you would need to refresh the page to see changes.
 
 ## Using the OAS document
 
@@ -20,8 +28,8 @@ If you don't want to use this Express server, or you want to take advantage the 
 
 Check out these lists of tools:
 
-* [OpenAPI.tools](https://openapi.tools/)
-* [OpenAPI 3.0 Implementations](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md)
+- [OpenAPI.tools](https://openapi.tools/)
+- [OpenAPI 3.0 Implementations](https://github.com/OAI/OpenAPI-Specification/blob/master/IMPLEMENTATIONS.md)
 
 ## Viewing the docs
 

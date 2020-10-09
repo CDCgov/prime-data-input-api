@@ -4,12 +4,12 @@ openapi: "3.0.0"
 # tags:
 #   - organizations
 #   - test_registrations
-#   - test_results 
+#   - test_results
 #   - test_sites
 info:
   version: 0.0.1
   title: PRIME Prototype
-  contact: 
+  contact:
     email: qom3@cdc.gov
   license:
     name: MIT
@@ -30,15 +30,15 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: A list of test events
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Organizations"
               examples:
                 organizations:
-                  $ref: '#/components/examples/organizations'
+                  $ref: "#/components/examples/organizations"
         default:
           description: unexpected error
           content:
@@ -51,7 +51,7 @@ paths:
       tags:
         - organizations
       responses:
-        '201':
+        "201":
           description: Responds with the organization just created
           headers:
             Location:
@@ -59,12 +59,12 @@ paths:
                 type: string
               description: Location of the created resource
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Organization"
               examples:
                 organization:
-                  $ref: '#/components/examples/organization'
+                  $ref: "#/components/examples/organization"
         default:
           description: unexpected error
           content:
@@ -72,7 +72,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
   /organizations/{organizationID}:
-    get: 
+    get:
       summary: Info for specific organization
       operationId: showOrganizationById
       tags:
@@ -85,15 +85,15 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: A single organization
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Organization"
               examples:
                 organization:
-                  $ref: '#/components/examples/organization'
+                  $ref: "#/components/examples/organization"
         default:
           description: unexpected error
           content:
@@ -114,15 +114,15 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: A list of test events
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestRegistrations"
               examples:
                 test_registrations:
-                  $ref: '#/components/examples/test_registrations'
+                  $ref: "#/components/examples/test_registrations"
         default:
           description: unexpected error
           content:
@@ -135,7 +135,7 @@ paths:
       tags:
         - test_registrations
       responses:
-        '201':
+        "201":
           description: Responds with the test registration just created
           headers:
             Location:
@@ -143,12 +143,12 @@ paths:
                 type: string
               description: Location of the created resource
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestRegistration"
               examples:
                 test_registration:
-                  $ref: '#/components/examples/test_registration'
+                  $ref: "#/components/examples/test_registration"
         default:
           description: unexpected error
           content:
@@ -169,7 +169,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Expected response to a valid request
           content:
             application/json:
@@ -177,7 +177,7 @@ paths:
                 $ref: "#/components/schemas/TestRegistration"
               examples:
                 test_registration:
-                  $ref: '#/components/examples/test_registration'
+                  $ref: "#/components/examples/test_registration"
         default:
           description: unexpected error
           content:
@@ -198,15 +198,15 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: A list of test events
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestResults"
               examples:
                 test_results:
-                  $ref: '#/components/examples/test_results'
+                  $ref: "#/components/examples/test_results"
         default:
           description: unexpected error
           content:
@@ -219,7 +219,7 @@ paths:
       tags:
         - test_results
       responses:
-        '201':
+        "201":
           description: Responds with the test result just created
           headers:
             Location:
@@ -227,33 +227,33 @@ paths:
                 type: string
               description: Location of the created resource
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestResult"
               examples:
                 test_result:
-                  $ref: '#/components/examples/test_result'
+                  $ref: "#/components/examples/test_result"
         default:
           description: unexpected error
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /test_results/{testResultID}:
+  /test_results/{test_result_id}:
     get:
       summary: Info for a specific test result
       operationId: showTestResultById
       tags:
         - test_results
       parameters:
-        - name: testResultID
+        - name: test_result_id
           in: path
           required: true
           description: The id of the test result to retrieve
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Expected response to a valid request
           content:
             application/json:
@@ -261,7 +261,7 @@ paths:
                 $ref: "#/components/schemas/TestResult"
               examples:
                 test_result:
-                  $ref: '#/components/examples/test_result'
+                  $ref: "#/components/examples/test_result"
         default:
           description: unexpected error
           content:
@@ -282,15 +282,15 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: A list of test events
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestSites"
               examples:
                 test_sites:
-                  $ref: '#/components/examples/test_sites'
+                  $ref: "#/components/examples/test_sites"
         default:
           description: unexpected error
           content:
@@ -303,7 +303,7 @@ paths:
       tags:
         - test_sites
       responses:
-        '201':
+        "201":
           description: Responds with the test site just created
           headers:
             Location:
@@ -311,12 +311,12 @@ paths:
                 type: string
               description: Location of the created resource
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/TestSite"
               examples:
                 test_site:
-                  $ref: '#/components/examples/test_site'
+                  $ref: "#/components/examples/test_site"
         default:
           description: unexpected error
           content:
@@ -337,7 +337,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Expected response to a valid request
           content:
             application/json:
@@ -345,7 +345,7 @@ paths:
                 $ref: "#/components/schemas/TestSite"
               examples:
                 test_site:
-                  $ref: '#/components/examples/test_site'
+                  $ref: "#/components/examples/test_site"
         default:
           description: unexpected error
           content:
@@ -389,7 +389,7 @@ components:
       properties:
         id:
           type: integer
-          format: int64
+          format: int64 # should these be UUID or
         test_datetime:
           type: string
           format: date-time
@@ -425,7 +425,10 @@ components:
           type: array
           items:
             type: string
-          
+        test_result_id:
+          type: integer
+          format: int64
+          nullable: true
     TestRegistrations:
       type: object
       required:
@@ -535,7 +538,7 @@ components:
     test_registration:
       summary: A test registration
       value:
-        id: 1
+        id: 123
         test_datetime: "2020-10-01T12:00:01.000Z"
         first_name: Clark
         middle_name: M
@@ -554,12 +557,13 @@ components:
         symptoms:
           - fever
           - cough
+        test_result_id: 1
     test_registrations:
       summary: List of test registrations
       value:
-        count: 2
+        count: 3
         items:
-          - id: 1
+          - id: 123
             test_datetime: "2020-10-01T12:00:01.000Z"
             first_name: Clark
             middle_name: M
@@ -578,7 +582,8 @@ components:
             symptoms:
               - fever
               - cough
-          - id: 2
+            test_result_id: 1
+          - id: 234
             test_datetime: "2020-10-02T09:14:10.000Z"
             first_name: Enola
             middle_name: T
@@ -596,6 +601,26 @@ components:
             sex: female
             symptoms:
               - ""
+            test_result_id: null
+          - id: 345
+            test_datetime: "2020-10-02T09:14:10.000Z"
+            first_name: Viscount Tewkesbury
+            middle_name: The
+            last_name: Marquess of Basilwether
+            birth_date: "1988-05-24"
+            phone: "721-124-2589"
+            email: "tewkesbury@example.com"
+            address: 999 Noble Ave
+            city: Basilwether
+            state: MA
+            zipcode: "02163"
+            preferred_contact_method: phone
+            race: caucasian
+            ethnicity: other
+            sex: male
+            symptoms:
+              - ""
+            test_result_id: 2
     test_result:
       summary: A test result
       value:
@@ -645,7 +670,7 @@ components:
             city: Boulder
             state: CO
             zipcode: "80306"
-    
+
   securitySchemes:
     api_key:
       type: apiKey
@@ -653,12 +678,12 @@ components:
       in: header
     prime_api_auth:
       type: oauth2
-      flows: 
+      flows:
         implicit:
           authorizationUrl: http://example.org/api/oauth/dialog
           scopes:
             write:patients: modify patients in your account
-            read:patients: read your patients 
+            read:patients: read your patients
 security:
-- api_key: []
-- prime_api_auth: []
+  - api_key: []
+  - prime_api_auth: []
